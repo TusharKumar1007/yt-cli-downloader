@@ -43,13 +43,13 @@ Enter Your choice:
 .
 ├── audio.py               # Handles YouTube audio-only downloads
 ├── batch.py               # Batch download logic from text file
-├── config.py              # (Assumed) Config settings or constants
-├── downloader.py          # (Assumed) Core download logic or shared utilities
+├── config.py              # Config settings or constants
+├── downloader.py          # Core download logic or shared utilities
 ├── file_handler.py        # File operations: save, read, clear links
 ├── gui_selector.py        # GUI-based file picker (likely using tkinter)
 ├── main.py                # Main CLI entry point with interactive menu
 ├── playlist.py            # Handles full playlist downloads
-├── resolution.py          # (Assumed) Manages video resolution selection
+├── resolution.py          # Manages video resolution selection
 ├── single.py              # Single video download (with/without audio)
 ├── utility.py             # Misc utilities like merging audio/video, conversion
 
