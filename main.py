@@ -68,7 +68,7 @@ def main():
 
         for index, choise in enumerate(list_options):
             print(f"{Fore.CYAN}{index+1} --> {Fore.GREEN}{choise}")
-        print(f"Ener 0 for advance options")
+        print(f"Enter 0 for advance options")
         main_ans = input("\nEnter Your choice: ").strip()
         if main_ans.lower() == "q":
             break
