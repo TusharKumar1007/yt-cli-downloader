@@ -149,7 +149,7 @@ def download_video_with_user_choice_single_fast(video_url, resolution):
 
     except Exception as e:
         pbar.close()
-        print(f"\nError: {e}")
+        # print(f"\nError: {e}")
         return None
     finally:
         # Ensure the progress bar is closed when all is done or an exception occurs
