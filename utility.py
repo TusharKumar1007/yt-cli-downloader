@@ -6,6 +6,7 @@ from config import ffmpeg_path
 import platform
 import re
 import time
+from config import repl_output_path,mach_output_path
 
 
 init()
@@ -17,10 +18,10 @@ def combine(video, audio):
     # print('test1')
 
     if "REPLIT_ENVIRONMENT" in os.environ:
-        output_path = "./downloads"
+        output_path = repl_output_path
     else:
         # Default output path for other environments
-        output_path = os.path.join(os.path.expanduser("~"), "Downloads")
+        output_path =mach_output_path
 
     # print('test2')
     output_filename = os.path.splitext(os.path.basename(video))[0] + "z.mp4"

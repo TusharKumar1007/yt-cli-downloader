@@ -208,9 +208,8 @@ def download_video_with_user_choice_single(video_url, resolution):
                 """
                 # download_audio(video_url)
                 # print(f"Audio: {output_path}/{title}.mp3", path)
-
                 combine(path, f"{output_path}/{title}.mp3")
-
+                
                 delete_files_with_name(output_path, title)
 
                 print(f"{Fore.CYAN}Video downloaded successfully!\n")

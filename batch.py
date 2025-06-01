@@ -61,7 +61,7 @@ def download_batch(yt_link_list, default_res="720p"):
     if len(yt_link_list) == 0:
         raise Exception
     resolution = input(
-        "Enter resolution 360, 480, 720 or 1080 press enter to download at the highest Quality available:  "
+        f"Enter resolution 360, 480, 720 or 1080 press enter to download in {default_res}:  "
     ).strip()
 
     if resolution in ["360", "480", "720", "1080"]:

@@ -59,7 +59,7 @@ def download_playlist():
         # Process links based on user choice
         if user_input == "1":
             for url in link_list:
-                download_audio(url)  # Ensure download_audio is defined
+                download_audio(url,'y')  # Ensure download_audio is defined
         elif user_input == "2":
             download_batch(link_list)  # Ensure download_batch is defined
 

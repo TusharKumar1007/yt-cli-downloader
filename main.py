@@ -97,10 +97,29 @@ def main():
         elif main_ans == "2":
             try:
                 link_lst = fetch_links_from_text_file()
-                download_batch(link_lst)
+                print("\n\t1--> Download as Video")
+                print("\t2--> Download as Audio")
+
+                user_choice = input(
+                    "Enter your choice by ,default Audio will be downloaded: "
+                )
+
+                if user_choice in ["1", "2"]:
+                    if user_choice == "1":
+                        download_batch(link_lst)
+                    else:
+                        default_type_choice = input(
+                            "Do You Want to give default Choice for all video (Y/N): "
+                        )
+                        for link in link_lst:
+                            download_audio(link,default_type_choice)
+                else:
+                    for link in link_lst:
+                        download_audio(link)
+
             except KeyboardInterrupt:
                 print(f"\n\t\t{Fore.RED}**** Aborting ****")
-            except:
+            except Exception as e:
                 print(f"\n\t\t{Fore.YELLOW}**** Please add links using option 5 ****")
                 sleep(2)
 
@@ -119,15 +138,16 @@ def main():
                 print(
                     f"\n\t\t{Fore.RED}**** This video is not available. It may have been removed or made private ****"
                 )
-            except Exception as e:
+            except:
                 print(
-                    f"\n{Fore.RED}**** Check your Internet connection and try again ****\n{e}"
+                    f"\n{Fore.RED}**** Check your Internet connection and try again ****\n"
                 )
 
         elif main_ans == "4":
             video_url = input("Enter the YouTube video URL: ").strip()
             try:
-                download_audio(video_url)
+                print("\n\tIf Audio file time is more than 1hr You Need to Wait a little😄")
+                download_audio(video_url,'n')
             except KeyboardInterrupt:
                 print(f"\n\t\t{Fore.RED}**** Aborting ****")
             except ExtractError as e:
