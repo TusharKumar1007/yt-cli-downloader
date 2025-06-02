@@ -109,7 +109,7 @@ def main():
                         download_batch(link_lst)
                     else:
                         default_type_choice = input(
-                            "Do You Want to give default Choice for all video (Y/N): "
+                            "Do You Want to give default Quality(192kbps) for all video (Y/N): "
                         )
                         for link in link_lst:
                             download_audio(link,default_type_choice)

@@ -45,6 +45,7 @@ def save_audio(stream_audio, output_path, yt_title):
     temp_file = os.path.join(output_path, f"{yt_title}_temp.{source_ext}")
     final_file = os.path.join(output_path, f"{yt_title}.mp3")
 
+    print('\tDO NOT PANIC IF IT LOOKS STUCK')
     stream_audio.download(output_path=output_path, filename=os.path.basename(temp_file))
     
 
