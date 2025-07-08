@@ -1,3 +1,7 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # Suppress TF INFO/WARN/ERROR logs
+os.environ['CUDA_VISIBLE_DEVICES'] = ''   # Suppress GPU logs if not using GPU
+
 
 from colorama import init, Fore
 from audio import download_audio

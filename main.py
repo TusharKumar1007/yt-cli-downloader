@@ -14,7 +14,7 @@ from file_handler import clear_file, save_links_to_text_file
 from gui_selector import file_gui_selection
 from playlist import download_playlist
 from single import donwload_single, yt_without_audio
-from utility import combine, mp4_to_mp3
+from utility import combine, mp4_to_mp3,uptune_audio
 
 init()
 
@@ -63,6 +63,7 @@ def main():
             "Add links to file",
             "Clear Youtube link File data",
             "Convert video(MP4) to Audio(MP3)",
+            "Uptune your mp3 or make it compatible"
         ]
         adv_options = ["# -> For .m3u8 download", "$ -> Audio and video combiner"]
 
@@ -72,7 +73,7 @@ def main():
         main_ans = input("\nEnter Your choice: ").strip()
         if main_ans.lower() == "q":
             break
-        if main_ans not in ["1", "2", "3", "4", "5", "6", "7", "#", "$", "0"]:
+        if main_ans not in ["1", "2", "3", "4", "5", "6", "7","8", "#", "$", "0"]:
             print(f"{Fore.RED}Invalid choice. Please try again.")
             continue
 
@@ -185,6 +186,9 @@ def main():
                 print(f"\n\t\t{Fore.RED}**** Aborting ****")
             except:
                 print(f"\t\t{Fore.RED}**** Cannot find the file specified ****\t\t")
+        
+        elif main_ans=="8":
+            uptune_audio()
         elif main_ans == "#":
             user_input_m3u8 = input("Enter .m3u8 Url: ")
             download_hls_video(user_input_m3u8)

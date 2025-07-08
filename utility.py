@@ -6,12 +6,14 @@ from config import ffmpeg_path
 import platform
 import re
 import time
-from config import repl_output_path,mach_output_path
+from config import repl_output_path, mach_output_path
+from gui_selector import file_gui_selection
 
 
 init()
 
 # ------------------------------------------------------------------------------------------------------
+
 
 def combine(video, audio):
     caller = inspect.stack()[1].function
@@ -21,7 +23,7 @@ def combine(video, audio):
         output_path = repl_output_path
     else:
         # Default output path for other environments
-        output_path =mach_output_path
+        output_path = mach_output_path
 
     # print('test2')
     output_filename = os.path.splitext(os.path.basename(video))[0] + "z.mp4"
@@ -118,6 +120,7 @@ def open_mp4_file(file_path):
         # print(file_path)
         os.startfile(file_path)
 
+
 def delete_files_with_name(downloads_folder, file_prefix):
 
     files = os.listdir(downloads_folder)
@@ -140,13 +143,39 @@ def delete_files_with_name(downloads_folder, file_prefix):
 
 # ------------------------------------------------------------------------------------------------------
 
+
 def determine_output_path():
     # Check if the code is running on Replit
     if "REPLIT_ENVIRONMENT" in os.environ:
         return "./downloads"
     else:
         return os.path.join(os.path.expanduser("~"), "Downloads")
-    
+
+
 # ------------------------------------------------------------------------------------------------------
 
 
+def uptune_audio():
+    print("\n\tPlease select the file from gui")
+    (full_path, file_name) = file_gui_selection("*.mp3")
+
+    # print(f"{full_path}\n{file_name}")
+
+    output_path = os.path.join(determine_output_path(), f"{file_name}_192kbps.mp3")
+    try:
+        if not full_path:
+            raise FileNotFoundError(f"\t{Fore.RED}❌ Please select a file")
+
+        print(f"{Fore.CYAN}UpTunning {file_name}")
+
+        (
+            ffmpeg.input(full_path)
+            .output(output_path, audio_bitrate="192k", acodec="libmp3lame")
+            .overwrite_output()
+            .run(quiet=True)
+        )
+        print(f"{Fore.GREEN}✅ File re-encoded to 192k and saved at: {output_path}")
+    except FileNotFoundError as e:
+        print(e)
+    except ffmpeg.Error as e:
+        print(f"{Fore.RED}❌ FFmpeg error:", e)
