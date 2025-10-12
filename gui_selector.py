@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 import os
+import platform
 # ------------------------------------------------------------------------------------------------------
 
 def file_gui_selection(file_extention="*.mp4"):
@@ -22,7 +23,8 @@ def file_gui_selection(file_extention="*.mp4"):
             filetypes=[(f"{file_type} files", f"{file_extention}")]
         )
         print("Selected file:", file_path)
-        file_path = file_path.replace("/", "\\")
+        if platform.system() == "Windows":
+            file_path = file_path.replace("/", "\\")
         file_name = os.path.splitext(os.path.basename(file_path))[0]
         root.destroy()
 

@@ -181,7 +181,9 @@ def main():
         elif main_ans == "7":
             try:
                 file_path, file_name = file_gui_selection()
+                print("the file is:",file_path)
                 mp4_to_mp3(file_path, file_name)
+                print(file_path)
             except KeyboardInterrupt:
                 print(f"\n\t\t{Fore.RED}**** Aborting ****")
             except:

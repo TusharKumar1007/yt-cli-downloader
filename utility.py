@@ -8,6 +8,7 @@ import re
 import time
 from config import repl_output_path, mach_output_path
 from gui_selector import file_gui_selection
+import subprocess
 
 
 init()
@@ -51,7 +52,6 @@ def combine(video, audio):
 
 
 def mp4_to_mp3(file_path, file_name="audio.mp3"):
-
     if file_path.strip() in [None, ""]:
         return print("\n\t\t**** No file Selected ****\n")
 
@@ -86,6 +86,8 @@ def mp4_to_mp3(file_path, file_name="audio.mp3"):
             print(f"\n{Fore.RED}***** No file selected *****")
             return
         output_dir = os.path.expanduser("~\\Downloads")
+        if platform.system() == "Linux":
+            output_dir = os.path.expanduser("~/Downloads")
         output_path = os.path.join(output_dir, output_filename)
         if user_choice == "1":
             print(f"\n\t\t{Fore.MAGENTA}**** Conversion in progress Normal ****\n")
@@ -119,6 +121,9 @@ def open_mp4_file(file_path):
     if platform.system() == "Windows":
         # print(file_path)
         os.startfile(file_path)
+    elif platform.system() == "Linux":
+        file_path = file_path.replace("\\", "/")
+        subprocess.run(["xdg-open", file_path])
 
 
 def delete_files_with_name(downloads_folder, file_prefix):
