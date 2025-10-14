@@ -92,6 +92,16 @@ ffmpeg -version
 
 ```
 
+# for tkinter use:
+```bash
+sudo dnf install python3-tkinter
+```
+
+# verify Tkinter installation
+```bash
+python3 -m tkinter
+```
+
 # 🚀 Usage
 Run the script:
 ```bash
