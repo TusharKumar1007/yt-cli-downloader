@@ -58,7 +58,7 @@ Enter Your choice:
 # 🔧 Requirements
 # Run this command to download dependency to your envinorment
 ```bash
-pip install -r requirements.txt
+pip install -r requirement.txt
 ```
 And install ffmpeg (required for conversion/merging):
 
