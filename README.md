@@ -56,20 +56,47 @@ Enter Your choice:
 ```
 
 # 🔧 Requirements
-pip install pytubefix ffmpeg-python colorama
+# Run this command to download dependency to your envinorment
+```bash
+pip install -r requirements.txt
+```
 And install ffmpeg (required for conversion/merging):
 
 Windows: Download [FFmpeg](https://ffmpeg.org/download.html) and add to PATH.
 
-macOS: brew install ffmpeg
+macOS:
+```bash 
+brew install ffmpeg
+```
 
-Linux: sudo apt install ffmpeg
+Linux(tested on Fedora 42): 
+
+# Enable RPM Fusion free and nonfree repositories:
+```bash
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+# Update your package metadata:
+```bash
+sudo dnf upgrade --refresh
+```
+
+# Install FFmpeg and development libraries:
+```bash
+sudo dnf install ffmpeg ffmpeg-devel --allowerasing
+```
+# Verify the installation:
+```bash
+ffmpeg -version
+
+```
 
 # 🚀 Usage
 Run the script:
-python main_script.py
-
+```bash
+python main.py
 ```
+
 You will be prompted with options to choose from:
 
 1: Download a single video
@@ -85,7 +112,7 @@ You will be prompted with options to choose from:
 6: Clear saved link file
 
 7: Convert .mp4 to .mp3
-```
+
 
 # 📁 Batch Download
 Add links using Option 5:
