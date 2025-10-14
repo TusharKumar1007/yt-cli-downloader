@@ -63,36 +63,37 @@ pip install -r requirement.txt
 ```
 And install ffmpeg (required for conversion/merging):
 
-Windows: Download [FFmpeg](https://ffmpeg.org/download.html) and add to PATH.
+# Windows: 
+Download [FFmpeg](https://ffmpeg.org/download.html) and add to PATH.
 
-macOS:
+# macOS:
 ```bash 
 brew install ffmpeg
 ```
 
-Linux(tested on Fedora 42): 
+# Linux(tested on Fedora 42): 
 
-# Enable RPM Fusion free and nonfree repositories:
+Enable RPM Fusion free and nonfree repositories:
 ```bash
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
-# Update your package metadata:
+Update your package metadata:
 ```bash
 sudo dnf upgrade --refresh
 ```
 
-# Install FFmpeg and development libraries:
+Install FFmpeg and development libraries:
 ```bash
 sudo dnf install ffmpeg ffmpeg-devel --allowerasing
 ```
-# Verify the installation:
+Verify the installation:
 ```bash
 ffmpeg -version
 
 ```
 
-# for tkinter use:
+for tkinter use:
 ```bash
 sudo dnf install python3-tkinter
 ```
