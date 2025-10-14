@@ -56,6 +56,7 @@ Enter Your choice:
 ```
 
 # 🔧 Requirements
+# Make Sure you have Either chrome web browser or Firefox web browser for the PlayList Functionality to work
 # Run this command to download dependency to your envinorment
 ```bash
 pip install -r requirement.txt
