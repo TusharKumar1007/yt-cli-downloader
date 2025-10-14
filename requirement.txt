@@ -1,0 +1,6 @@
+webdriver-manager
+colorma
+pytubefix
+selenium
+ffmpeg-python
+

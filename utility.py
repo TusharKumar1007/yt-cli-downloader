@@ -5,7 +5,6 @@ import ffmpeg
 from config import ffmpeg_path
 import platform
 import re
-import time
 from config import repl_output_path, mach_output_path
 from gui_selector import file_gui_selection
 import subprocess

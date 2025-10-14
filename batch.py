@@ -20,6 +20,7 @@ def download_video_with_user_choice_batch(video_url, output_path, default_res):
     try:
         title = download_video_with_user_choice_single_fast(video_url, default_res)
         return title
+
     except IncompleteRead:
         retry_count += 1
         if retry_count <= 2:

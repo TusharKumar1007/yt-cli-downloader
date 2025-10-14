@@ -1,6 +1,7 @@
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # Suppress TF INFO/WARN/ERROR logs
-os.environ['CUDA_VISIBLE_DEVICES'] = ''   # Suppress GPU logs if not using GPU
+
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"  # Suppress TF INFO/WARN/ERROR logs
+os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Suppress GPU logs if not using GPU
 
 from colorama import init, Fore
 from audio import download_audio
@@ -16,13 +17,13 @@ from webdriver_manager.firefox import GeckoDriverManager
 
 init()
 
+
 def download_playlist():
     # Set up Chrome options
     chrome_options = ChromeOptions()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-gpu")
 
-    
     option_list = ["Audio", "Video"]
     for i, option in enumerate(option_list, start=1):
         print(f"\t\t{i} --> {option} ")
@@ -32,9 +33,8 @@ def download_playlist():
     if user_input not in ["1", "2"]:
         print(f"\t\t{Fore.RED}**** Invalid choice ****\n")
         return
-
     driver = None
-    
+
     try:
         driver = webdriver.Chrome(
             service=ChromeService(ChromeDriverManager().install()),
@@ -44,8 +44,8 @@ def download_playlist():
     except Exception as e:
         print(f"{Fore.RED}Chrome WebDriver failed: {e}. Trying Firefox...{Fore.RESET}")
 
-        #assuming chrome browser is not installed or have some error
-        #trying with firefox mainly for OS on Linux
+        # assuming chrome browser is not installed or have some error
+        # trying with firefox mainly for OS on Linux
         firefox_options = FirefoxOptions()
         firefox_options.add_argument("--headless")
 
@@ -56,17 +56,17 @@ def download_playlist():
             )
             print("Firefox WebDriver initialized successfully.")
         except Exception as e:
-            print(f"{Fore.RED}Firefox WebDriver also failed: {e}. Cannot initialize any browser.{Fore.RESET}")
+            print(
+                f"{Fore.RED}Firefox WebDriver also failed: {e}. Cannot initialize any browser.{Fore.RESET}"
+            )
             return
 
-    
     user_link = input("Enter the playlist URL: ").strip()
 
     try:
-        
+
         driver.get(user_link)
 
-        
         video_link_list = driver.find_elements(By.ID, "video-title")
         link_list = [
             video.get_attribute("href")
@@ -78,17 +78,18 @@ def download_playlist():
             print(f"{Fore.YELLOW}No videos found in the playlist.{Fore.RESET}")
             return
 
-        
         if user_input == "1":
             for url in link_list:
-                download_audio(url, 'y')  
+                download_audio(url, "y")
         elif user_input == "2":
-            download_batch(link_list)  
+            download_batch(link_list)
 
         print(f"{Fore.GREEN}Download complete!{Fore.RESET}")
 
     except Exception as e:
-        print(f"{Fore.RED}An error occurred while processing the playlist: {e}{Fore.RESET}")
+        print(
+            f"{Fore.RED}An error occurred while processing the playlist: {e}{Fore.RESET}"
+        )
 
     finally:
         if driver:
