@@ -209,7 +209,10 @@ def main():
             print(f"\n{Fore.YELLOW}Please select Files using mini graphic Interface")
             video_file_path, video_file_name = file_gui_selection()
             audio_file_path, audio_file_name = file_gui_selection("*.mp3")
-            combine(video_file_path, audio_file_path)
+            try:
+                combine(video_file_path, audio_file_path)
+            except:
+                print(f'\t\t{Fore.RED}Please Select a file\n{Fore.GREEN}')
         elif main_ans == "0":
             for adv_op in adv_options:
                 print(adv_op)
