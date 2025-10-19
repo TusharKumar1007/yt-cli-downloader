@@ -43,6 +43,7 @@ def combine(video, audio):
     ffmpeg.output(
         input_video, input_audio, output_path, codec="copy"
     ).overwrite_output().run(ffmpeg_path, quiet=True)
+    # print("success")
     if caller == "main":
         print(f"\n\t\t{Fore.MAGENTA}**** Sucessfully Combined Audio And Video ****")
 

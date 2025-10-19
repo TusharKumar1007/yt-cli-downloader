@@ -14,7 +14,8 @@ retry_count = 0
 # ffmpeg_relative_path = os.path.join(r"C:\ffmpeg_for_python\ffmpeg.exe")
 
 # use this when in vs code
-ffmpeg_path = os.path.join(r"/usr/bin/ffmpeg")
+ffmpeg_path = os.path.join(r"/usr/bin/ffmpeg") # linux
+# ffmpeg_path=os.path.join(r"C:\ffmpeg_for_python\ffmpeg.exe") # windows
 
 
 # ----output Paths-----
