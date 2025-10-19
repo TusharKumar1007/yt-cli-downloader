@@ -3,4 +3,4 @@ colorma
 pytubefix
 selenium
 ffmpeg-python
-
+tqdm
