@@ -1,5 +1,5 @@
 webdriver-manager
-colorma
+colorama
 pytubefix
 selenium
 ffmpeg-python
