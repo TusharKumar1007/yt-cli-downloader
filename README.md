@@ -1,5 +1,8 @@
 # 🎬 YouTube Media Downloader CLI
 
+**Official Repository:** Maintained by [Tushar Kumar](https://github.com/TusharKumar1007)  
+**Project URL:** [TusharKumar1007/yt-cli-downloader](https://github.com/TusharKumar1007/yt-cli-downloader)
+
 
 
 A command-line YouTube video/audio downloader built with `pytubefix`, `ffmpeg`, and `colorama`. Supports single videos, playlists, audio-only downloads, and more — all with interactive prompts.
@@ -155,4 +158,3 @@ pytubefix
 ffmpeg-python
 
 colorama
-
